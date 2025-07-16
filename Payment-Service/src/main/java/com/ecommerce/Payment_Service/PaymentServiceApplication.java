@@ -1,13 +1,13 @@
-package com.microservice.serviceController;
+package com.ecommerce.Payment_Service;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServiceControllerApplication {
+public class PaymentServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ServiceControllerApplication.class, args);
+		SpringApplication.run(PaymentServiceApplication.class, args);
 	}
 
 }

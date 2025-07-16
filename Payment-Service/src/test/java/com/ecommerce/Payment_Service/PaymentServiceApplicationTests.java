@@ -1,10 +1,10 @@
-package com.microservice.serviceController;
+package com.ecommerce.Payment_Service;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ServiceControllerApplicationTests {
+class PaymentServiceApplicationTests {
 
 	@Test
 	void contextLoads() {
