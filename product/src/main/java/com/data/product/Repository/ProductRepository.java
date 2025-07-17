@@ -10,20 +10,19 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
 
-    @Query(value = "SELECT * FROM products WHERE id = :productId", nativeQuery = true)
+    @Query(value = "SELECT * FROM product WHERE id = :productId", nativeQuery = true)
     Product findByProductId(@Param("productId") Long productId);
 
     @Transactional
     @Modifying
-    @Query(value = "Update product SET delete_at=:date Where id=:productId", nativeQuery = true)
+    @Query(value = "Update product SET deleted_at=:date Where id=:productId", nativeQuery = true)
     void deleteProductById(@Param("productId") Long productId,
                            @Param("date") Date date);
 
-    @Query(value = "SELECT * FROM products WHERE delete_at is not null", nativeQuery = true)
+    @Query(value = "SELECT * FROM product WHERE deleted_at is null", nativeQuery = true)
     List<Product> findAllProduct();
 }

@@ -2,6 +2,8 @@ package com.data.product.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -24,11 +26,13 @@ public class Product {
 
     private String product_name;
     private double price;
-    private String manufacture;
+    private String brand;
+    private String category;
     private  String details;
-    @CreatedDate
+    private  int stock;
+    @CreationTimestamp
     private Date created_at;
-    @LastModifiedDate
+    @UpdateTimestamp
     private Date updated_at;
     private Date deleted_at;
 }

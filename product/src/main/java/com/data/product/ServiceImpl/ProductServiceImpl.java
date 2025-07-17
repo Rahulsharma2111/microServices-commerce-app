@@ -24,8 +24,9 @@ public class ProductServiceImpl implements ProductService {
         product.setProduct_name(productRequest.getProduct_name());
         product.setImage(productRequest.getImage());
         product.setPrice(productRequest.getPrice());
-        product.setManufacture(productRequest.getManufacture());
+        product.setBrand(productRequest.getBrand());
         product.setDetails(productRequest.getDetails());
+        product.setCategory(productRequest.getCategory());
         productRepository.save(product);
     }
 
@@ -39,10 +40,9 @@ public class ProductServiceImpl implements ProductService {
         product.setProduct_name(productRequest.getProduct_name());
         product.setImage(productRequest.getImage());
         product.setPrice(productRequest.getPrice());
-        product.setManufacture(productRequest.getManufacture());
+        product.setBrand(productRequest.getBrand());
         product.setDetails(productRequest.getDetails());
-
-//        Date date =new Date();
+        product.setStock(productRequest.getStock());
         product.setUpdated_at(new Date());
         productRepository.save(product);
     }
@@ -55,8 +55,9 @@ public class ProductServiceImpl implements ProductService {
 
 
     @Override
-    public void getProduct(ProductRequest productRequest) {
+    public List<Product> getProduct() {
        List<Product> allProducts=productRepository.findAllProduct();
+        return allProducts;
     }
 
     @Override

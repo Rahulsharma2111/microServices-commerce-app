@@ -2,9 +2,14 @@ package com.data.product.Controller;
 
 
 import com.data.product.DTO.Request.ProductRequest;
+import com.data.product.Entity.Product;
 import com.data.product.Serivce.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/product")
@@ -15,24 +20,24 @@ public class ProductController {
     private ProductService productService;
 
     @PostMapping("/add")
-    public void addNewProductData(@RequestBody ProductRequest productRequest) {
+    public ResponseEntity<String > addNewProductData(@RequestBody ProductRequest productRequest) {
 
         productService.addNewProduct(productRequest);
-
+        return ResponseEntity.ok("Product added successfully");
     }
 
     @PutMapping("/edit/{id}")
-    public void editProduct(@PathVariable("id") Long productId,@RequestBody ProductRequest productRequest) {
+    public ResponseEntity<String> editProduct(@PathVariable("id") Long productId, @RequestBody ProductRequest productRequest) {
 
         productService.editProduct(productId,productRequest);
-
+        return ResponseEntity.ok("Product edit successfully");
     }
 
     @DeleteMapping("/delete/{id}")
-    public void deleteProduct(@PathVariable("id") Long productId) {
+    public ResponseEntity<String> deleteProduct(@PathVariable("id") Long productId) {
 
         productService.deleteProduct(productId);
-
+        return ResponseEntity.ok("Product deleted successfully");
     }
 
     @GetMapping("/{id}")
@@ -42,10 +47,11 @@ public class ProductController {
 
     }
     @GetMapping("/all-items")
-    public void getProduct(@RequestBody ProductRequest productRequest) {
+    public ResponseEntity<?> getProduct() {
 
-        productService.getProduct(productRequest);
+      List<Product> productList=productService.getProduct();
 
+        return ResponseEntity.ok(productList);
     }
 
 }
