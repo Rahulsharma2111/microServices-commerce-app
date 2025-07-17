@@ -41,7 +41,7 @@ public class ProductController {
         productService.getProductById(productId);
 
     }
-    @GetMapping("")
+    @GetMapping("/all-items")
     public void getProduct(@RequestBody ProductRequest productRequest) {
 
         productService.getProduct(productRequest);

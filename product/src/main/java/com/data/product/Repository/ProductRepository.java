@@ -20,7 +20,7 @@ public interface ProductRepository extends JpaRepository<Product,Long> {
 
     @Transactional
     @Modifying
-    @Query(value = "Update product delete_at=:date Where id=:productId", nativeQuery = true)
+    @Query(value = "Update product SET delete_at=:date Where id=:productId", nativeQuery = true)
     void deleteProductById(@Param("productId") Long productId,
                            @Param("date") Date date);
 

@@ -37,11 +37,13 @@ public class User implements UserDetails {
 
     @Column(unique = true, nullable = false)
     private String username;
-//    @Column( nullable = false)
+    //    @Column( nullable = false)
     private String password;
-//    @Column(, nullable = false)
-@Column(length = 512,unique = true)
-private String token;
+    //    @Column(, nullable = false)
+    @Column(length = 512, unique = true)
+    private String token;
+    private Boolean block;
+    private String role;
 
     @Override
     public Set<GrantedAuthority> getAuthorities() {
