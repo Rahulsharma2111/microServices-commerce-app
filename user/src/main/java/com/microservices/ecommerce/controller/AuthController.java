@@ -34,8 +34,9 @@ public class AuthController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@RequestParam("username") String username,
-                                   @RequestParam("password") String password,
-                                   @RequestParam("mobile") String mobile) {
+                                   @RequestParam("password") String password) {
+
+//       ,@RequestParam("mobile") String mobile
         try {
             Optional<User> userOptional = userRepository.findByUsername(username);
             if (userOptional.isEmpty()) {
