@@ -10,6 +10,10 @@
         <option value="$PROJECT_DIR$/serviceController/pom.xml" />
         <option value="$PROJECT_DIR$/Payment-Service/pom.xml" />
         <option value="$PROJECT_DIR$/user/pom.xml" />
+        <option value="$PROJECT_DIR$/Registry/pom.xml" />
+        <option value="$PROJECT_DIR$/notification/pom.xml" />
+        <option value="$PROJECT_DIR$/Discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/ApiGateway/pom.xml" />
       </list>
     </option>
   </component>
