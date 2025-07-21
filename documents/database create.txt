@@ -1,0 +1,5 @@
+create database e_commerce;
+create database products;
+create database payments_history;
+create database admin_dashboard;
+create database orders;
