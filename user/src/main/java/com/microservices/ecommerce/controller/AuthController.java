@@ -50,9 +50,9 @@ public class AuthController {
             String token = jwtUtil.generateToken(userDetails, user);
 
             user.setToken(token);
-            userRepository.save(user);
+            User user1=userRepository.save(user);
 
-            return ResponseEntity.ok(Map.of("message", "Login successful", "token", token));
+            return ResponseEntity.ok(Map.of("message", "Login successful", "token", token,"user_id",user1.getId(),"user",user));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error: " + e.getMessage());
         }
