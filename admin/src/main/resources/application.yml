@@ -7,6 +7,11 @@ eureka:
     service-url:
       defaultZone: http://localhost:8787/eureka
 
+#spring:
+#  cloud:
+#    config:
+#      enabled: false
+
 spring:
   cloud:
     compatibility-verifier:

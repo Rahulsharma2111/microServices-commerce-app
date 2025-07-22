@@ -41,9 +41,9 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtAuthFilter jwtFilter) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // ✅ Updated syntax
+                .csrf(csrf -> csrf.disable()) //
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/login", "/auth/register").permitAll() // Change to authenticated() if needed
+                        .requestMatchers("/auth/login", "/auth/register","/history/**","/order/history").permitAll() // Change to authenticated() if needed
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

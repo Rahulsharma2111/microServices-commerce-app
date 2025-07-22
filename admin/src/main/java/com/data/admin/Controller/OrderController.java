@@ -67,9 +67,11 @@ public class OrderController {
 //            Long userId = claims.get("id", Long.class);
 
             List<ProductOrder> productOrder = orderService.getAllOrderHistory(userId);
-            return CustomResponse.ok(productOrder);
+//            return CustomResponse.ok(productOrder);
+            return ResponseEntity.ok(productOrder);
         } catch (Exception e) {
-            return CustomResponse.conflict("Something went wrong");
+//            return CustomResponse.conflict("Something went wrong");
+            return (ResponseEntity<?>) ResponseEntity.internalServerError();
         }
     }
 
