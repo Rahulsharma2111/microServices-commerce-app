@@ -1,4 +1,23 @@
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
+    fetch-registry: true
+    register-with-eureka: true
     service-url:
-      defaultZone: http://localhost:8787/eureka/
+      defaultZone: http://localhost:8787/eureka
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: ADMIN
+          uri: lb://ADMIN
+          Predicates:
+            - Path=/order/**
+
+        - id: ECOMMERCE
+          uri: lb://ECOMMERCE
+          Predicates:
+            - Path=/history/**
+
