@@ -1,0 +1,9 @@
+zookeeper-server-start.bat ..\..\config\zookeeper.properties
+kafka-server-start.bat ..\..\config\server.properties
+kafka-console-consumer.bat --topic send-mail --from-beginning --bootstrap-server localhost:9092
+
+# Delete the topic
+kafka-topics.bat --delete --topic your-topic-name --bootstrap-server localhost:9092
+
+# Recreate the topic
+kafka-topics.bat --create --topic send-mail --bootstrap-server localhost:9092 --partitions 1 --replication-factor 1
