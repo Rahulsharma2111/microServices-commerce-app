@@ -9,6 +9,6 @@ import org.springframework.kafka.config.TopicBuilder;
 public class KafkaConfig {
     @Bean
     public NewTopic topic(){
-        return TopicBuilder.name("send-mail").build();
+        return TopicBuilder.name("send-mail1").build();
     }
 }

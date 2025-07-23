@@ -53,8 +53,8 @@ public class OrderServiceImpl implements OrderService {
 
 
         ProductOrder savedOrder = orderRepository.save(newOrder);
-        Message<ProductOrder> message = MessageBuilder.withPayload(savedOrder)
-                .setHeader(KafkaHeaders.TOPIC, "send-mail")
+        Message<ProductOrder> message = MessageBuilder.withPayload(newOrder)
+                .setHeader(KafkaHeaders.TOPIC, "send-mail1")
                 .build();
 
         kafkaTemplate.send(message);
