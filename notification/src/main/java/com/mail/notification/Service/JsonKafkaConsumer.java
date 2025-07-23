@@ -11,6 +11,8 @@ public class JsonKafkaConsumer {
     public void Consumer(ProductOrder kafkaMail){
         System.out.println("✅✅ Kafka Consumer Triggered ✅✅");
         System.out.println(kafkaMail.toString());
+        System.out.println(kafkaMail.getEmail());
+        System.out.println(kafkaMail.getUsername());
         System.out.println("❌❌❌❌❌✔✔✔✔✔✔✔✔🙂🙂🙂🙂🙂");
     }
 }
